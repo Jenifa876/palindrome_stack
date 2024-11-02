@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Stack
+{
+    public:
+    int top=-1,a[10];
+    void push(int x)
+    {
+        top++;
+        a[top]=x;
+    }
+    void pop()
+    {
+        top--;
+    }
+    int peek()
+    {
+        return a[top];
+    }
+    bool ispalindrome(string s)
+    {
+        for(int i=0;i<s.length();i++)
+        {
+            push(s[i]);
+        }
+        for(int i=0;i<s.length();i++)
+        {
+            if(peek()!=s[i])
+                return false;
+            pop();
+        }
+        return true;
+    }
+};
+int main()
+{
+    Stack q;
+    string s;
+    cout<<"Enter a string";
+    cin>>s;
+    if(q.ispalindrome(s))
+        cout<<"The string is palindrome";
+    else
+        cout<<"The string is not a palindrome";
+}
